@@ -1,0 +1,32 @@
+---
+Name: backup-client
+Cartridge-Short-Name: OSBSC
+Display-Name: OSBS-C 0.1
+Source-Url: https://github.com/wshearn/openshift-cartridge-osbs-client.git
+Description: This is the client cartridge for OSBS
+Version: '0.1'
+Versions:
+- '0.1'
+License: ASL 2.0
+License-Url: http://www.apache.org/licenses/LICENSE-2.0.html
+Vendor: www.openshift.com
+Website: http://www.openshift.com/
+Cartridge-Version: 0.0.1
+Compatible-Versions: []
+Cartridge-Vendor: whearn
+Categories:
+- service
+- embedded
+Help-Topics:
+  Developer Center: https://www.openshift.com/developers
+Cart-Data:
+- Key: osbs_url
+  Type: cart_data
+  Description: URL for the osbs API
+Provides:
+- osbsc-0.1
+- osbsc
+Scaling:
+  Min: 1
+  Max: 1
+  Multiplier: -1

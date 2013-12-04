@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+if [[ -z "$OSBS_API_URL" ]]
+then
+    client_error "A OSBS Server does not exist in this domain!"
+    client_error "You must create a OSBS Server before installing this cartridge."
+    exit 151
+fi
+
+curl -XPOST "${OSBS_API_USER}:${OSBS_API_PASSWORD}@${OSBS_API_URL}/api/addgear?gear=${OPENSHIFT_GEAR_NAME}&uuid=${OPENSHIFT_GEAR_UUID}"
+
+client_result ""
+client_result "This gear has been added to the OSBS Server"
+client_result ""
