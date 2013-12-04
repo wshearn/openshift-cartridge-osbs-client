@@ -9,7 +9,7 @@ then
     exit 151
 fi
 
-curl -XPOST "${OSBS_API_USER}:${OSBS_API_PASSWORD}@${OSBS_API_URL}/api/addgear?gear=${OPENSHIFT_GEAR_NAME}&uuid=${OPENSHIFT_GEAR_UUID}"
+curl -XPOST -u ${OSBS_API_USER}:${OSBS_API_PASSWORD} "${OSBS_API_URL}/api/addgear?gear=${OPENSHIFT_GEAR_NAME}&uuid=${OPENSHIFT_GEAR_UUID}"
 
 client_result ""
 client_result "This gear has been added to the OSBS Server"
