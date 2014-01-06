@@ -1,0 +1,21 @@
+#!/bin/bash
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+function start() {
+  echo "Re-enabling backups for gear"
+
+  curl -XPOST -u ${OSBS_API_USER}:${OSBS_API_PASSWORD} "${OSBS_API_URL}/api/gearstarted?gear=${OPENSHIFT_GEAR_NAME}&uuid=${OPENSHIFT_GEAR_UUID}"
+}
+
+function stop() {
+  # This will casue the server to grab a snapshot now.So you will have the latest code/database
+  echo "Disabling backups for gear"
+
+  curl -XPOST -u ${OSBS_API_USER}:${OSBS_API_PASSWORD} "${OSBS_API_URL}/api/gearstopped?gear=${OPENSHIFT_GEAR_NAME}&uuid=${OPENSHIFT_GEAR_UUID}"
+}
+
+case "$1" in
+  start) start ;;
+  stop)  stop  ;;
+  *) exit 0;
+esac
